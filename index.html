@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priya Engineering — IT Asset Forms</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap');
+
+    :root {
+      --navy:   #0f1f3d;
+      --ink:    #1a2e52;
+      --steel:  #2d4a7a;
+      --sky:    #3b82f6;
+      --ice:    #dbeafe;
+      --white:  #ffffff;
+      --mist:   #f0f4fb;
+      --text:   #1e293b;
+      --sub:    #64748b;
+      --border: #cbd5e1;
+      --green:  #16a34a;
+      --green-bg: #dcfce7;
+      --amber:  #d97706;
+      --amber-bg: #fef3c7;
+      --red:    #dc2626;
+      --red-bg: #fee2e2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--mist);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      padding: 20px 24px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--sky);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--white);
+      letter-spacing: -1px;
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      font-size: 12px;
+      color: #93c5fd;
+      margin-top: 2px;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sub);
+      margin-bottom: 12px;
+      margin-top: 28px;
+      padding-left: 2px;
+    }
+
+    .section-label:first-child { margin-top: 0; }
+
+    /* ── Form card ── */
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.15s, border-color 0.15s, transform 0.1s;
+      cursor: pointer;
+    }
+
+    .form-card:hover {
+      border-color: var(--sky);
+      box-shadow: 0 4px 16px rgba(59,130,246,0.12);
+      transform: translateY(-1px);
+    }
+
+    .form-card:active { transform: translateY(0); }
+
+    .form-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+    }
+
+    .icon-blue   { background: var(--ice); }
+    .icon-green  { background: var(--green-bg); }
+    .icon-amber  { background: var(--amber-bg); }
+    .icon-red    { background: var(--red-bg); }
+
+    .form-info { flex: 1; }
+
+    .form-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .form-desc {
+      font-size: 13px;
+      color: var(--sub);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .form-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-blue   { background: var(--ice);      color: var(--sky);   }
+    .badge-green  { background: var(--green-bg);  color: var(--green); }
+    .badge-amber  { background: var(--amber-bg);  color: var(--amber); }
+    .badge-red    { background: var(--red-bg);    color: var(--red);   }
+
+    .chevron {
+      color: var(--border);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── IT lock notice ── */
+    .it-notice {
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .it-notice-icon { font-size: 20px; flex-shrink: 0; }
+
+    .it-notice-text {
+      font-size: 13px;
+      color: #93c5fd;
+      line-height: 1.4;
+    }
+
+    .it-notice-text strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── IT forms (collapsed, locked) ── */
+    .it-forms-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .it-form-row {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.7;
+    }
+
+    .it-form-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sub);
+      width: 32px;
+      flex-shrink: 0;
+    }
+
+    .it-form-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      flex: 1;
+    }
+
+    .it-form-who {
+      font-size: 11px;
+      color: var(--sub);
+    }
+
+    .lock-icon { font-size: 14px; color: var(--border); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--sub);
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: var(--mist);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--steel);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">PE</div>
+    <div class="header-text">
+      <h1>Priya Engineering</h1>
+      <p>IT Asset Tracking — Form Portal</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Employee Forms -->
+    <p class="section-label">Employee Forms — scan your device QR to begin</p>
+
+    <a class="form-card" href="YOUR_FORM_3_LINK_HERE" target="_blank" rel="noopener">
+      <div class="form-icon icon-blue">📝</div>
+      <div class="form-info">
+        <div class="form-name">Update Device Details</div>
+        <div class="form-desc">Report a change — user, location, or status</div>
+      </div>
+      <span class="form-badge badge-blue">Form 3</span>
+      <span class="chevron">›</span>
+    </a>
+
+    <a class="form-card" href="YOUR_FORM_4_LINK_HERE" target="_blank" rel="noopener">
+      <div class="form-icon icon-amber">🔧</div>
+      <div class="form-info">
+        <div class="form-name">Log a Repair</div>
+        <div class="form-desc">Device sent for repair or just returned</div>
+      </div>
+      <span class="form-badge badge-amber">Form 4</span>
+      <span class="chevron">›</span>
+    </a>
+
+    <a class="form-card" href="YOUR_FORM_6_LINK_HERE" target="_blank" rel="noopener">
+      <div class="form-icon icon-green">✅</div>
+      <div class="form-info">
+        <div class="form-name">Monthly Verification</div>
+        <div class="form-desc">Confirm your device is present and correct</div>
+      </div>
+      <span class="form-badge badge-green">Form 6</span>
+      <span class="chevron">›</span>
+    </a>
+
+    <!-- IT Only Section -->
+    <p class="section-label" style="margin-top:36px;">IT Department — Internal Use Only</p>
+
+    <div class="it-notice">
+      <div class="it-notice-icon">🔒</div>
+      <div class="it-notice-text">
+        <strong>Restricted Access</strong>
+        The forms below are for IT staff only. Do not share these links with employees.
+      </div>
+    </div>
+
+    <div class="it-forms-grid">
+
+      <a class="it-form-row" href="YOUR_FORM_1_LINK_HERE" target="_blank" rel="noopener" style="opacity:1; text-decoration:none; cursor:pointer;">
+        <span class="it-form-num">F–1</span>
+        <span class="it-form-name">Employee Registration</span>
+        <span class="it-form-who">HR / IT</span>
+        <span class="lock-icon">›</span>
+      </a>
+
+      <a class="it-form-row" href="YOUR_FORM_2_LINK_HERE" target="_blank" rel="noopener" style="opacity:1; text-decoration:none; cursor:pointer;">
+        <span class="it-form-num">F–2</span>
+        <span class="it-form-name">Asset Registration</span>
+        <span class="it-form-who">IT only</span>
+        <span class="lock-icon">›</span>
+      </a>
+
+      <a class="it-form-row" href="YOUR_FORM_5_LINK_HERE" target="_blank" rel="noopener" style="opacity:1; text-decoration:none; cursor:pointer;">
+        <span class="it-form-num">F–5</span>
+        <span class="it-form-name">Scrap / Disposal Log</span>
+        <span class="it-form-who">IT only</span>
+        <span class="lock-icon">›</span>
+      </a>
+
+    </div>
+
+    <footer>
+      Priya Engineering Projects Pvt. Ltd. &nbsp;·&nbsp; IT Department &nbsp;·&nbsp; June 2026<br/>
+      <span>IT Asset Tracking System v1.0</span>
+    </footer>
+
+  </main>
+
+</body>
+</html>
